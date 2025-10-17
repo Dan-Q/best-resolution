@@ -79,22 +79,30 @@
         </p>
         <p class="buttons">
           <?php
-            if( ! file_exists('current-sites.txt') || (time() - filemtime('current-sites.txt') > 3600) ) { // 3 hour expiry before sites rotated
-              $all_sites = file_get_contents('all-sites.txt');
-              $all_buttons = array_map("trim", explode("\n", $all_sites));
-              $all_buttons = array_filter($all_buttons, fn($button) => $button);
-              shuffle($all_buttons);
-              file_put_contents('current-sites.txt', implode("\n", array_slice($all_buttons, 0, 6)));
-            }
-            if( file_exists('current-sites.txt') ) {
-              $buttons = file_get_contents('current-sites.txt');
-              $buttons = array_map("trim", explode("\n", $buttons));
+            function load_buttons($file){
+              $sites = file_get_contents($file);
+              $buttons = array_map("trim", explode("\n", $sites));
               $buttons = array_filter($buttons, fn($button) => $button);
+              return $buttons;
+            }
+
+            function parse_button_data($buttons){
               $button_data = [];
               foreach($buttons as $button) {
                 $button = preg_split("/\s{2,}/", $button);
                 $button_data[] = [ 'alt' => $button[0], 'href' => $button[1], 'src' => $button[2] ];
               }
+              return $button_data;
+            }
+
+            if( ! file_exists('current-sites.txt') || (time() - filemtime('current-sites.txt') > 3600) ) { // 3 hour expiry before sites rotated
+              $all_buttons = load_buttons('all-sites.txt');
+              shuffle($all_buttons);
+              file_put_contents('current-sites.txt', implode("\n", array_slice($all_buttons, 0, 6)));
+            }
+            if( file_exists('current-sites.txt') ) {
+              $buttons = load_buttons('current-sites.txt');
+              $button_data = parse_button_data($buttons);
 
               if( $_GET['from'] ) { // If we came FROM a site in our known sites list, make sure that's shown this load!
                 // First, try the exising "current list"; if it's there, just highlight it!
