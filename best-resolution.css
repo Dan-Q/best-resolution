@@ -1,0 +1,122 @@
+/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+*,::after,::before{box-sizing:border-box}html{font-family:system-ui,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji';line-height:1.15;-webkit-text-size-adjust:100%;tab-size:4}body{margin:0}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Consolas,'Liberation Mono',Menlo,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{border-color:currentcolor}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}legend{padding:0}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}
+
+img {
+  image-rendering: pixelated;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("/subtle-white-feathers.png"), linear-gradient(#215e5e, blue);
+  min-height: 100vh;
+  font-size: 1.25rem;
+  gap: 2rem;
+  line-height: 1.6;
+}
+
+header, main, footer {
+  width: 95%;
+  max-width: 980px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  border-bottom: 2px dotted white;
+}
+
+li {
+  margin: 1ch 0;
+  list-style-image: url("/bullet.png");
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1.4rem 0.2rem 1.4rem 0.2rem;
+  padding: 1.4rem 2rem;
+}
+
+code {
+  display: block;
+  background: black;
+  color: lightgreen;
+  padding: 0.8ch 1.2ch;
+}
+
+.buttons, footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-evenly;
+
+  img {
+    transition: transform 0.2s ease-in-out;
+
+    &:hover, &:focus {
+      transform: scale(1.5);
+    }  
+  }
+}
+
+footer {
+  margin-bottom: 2rem;
+}
+
+/* Put stickers all over it! */
+header, main, section {
+  position: relative;
+}
+
+header::before,
+main::before,
+section::before,
+section::after {
+  font-size: 72px;
+  z-index: 2;
+  position: absolute;
+  filter: url(#stickerize) drop-shadow(0px 1px 2px #0009);
+  line-height: 1;
+}
+
+header::before {
+  content: '🚀';
+  left: -62px;
+  top: 8rem;
+}
+
+main::before {
+  content: '🌈';
+  right: -70px;
+  top: 4rem;
+  transform: rotate(18deg);
+}
+
+section:nth-of-type(2)::before {
+  content: '💡';
+  right: -45px;
+  top: 4rem;
+  transform: rotate(9deg);
+}
+
+section:nth-of-type(2)::after {
+  content: '👍';
+  left: -40px;
+  bottom: 4rem;
+  transform: rotate(-17deg);
+}
+
+section:nth-of-type(3)::after {
+  content: '🌞';
+  left: -62px;
+  bottom: 4rem;
+  transform: rotate(-17deg);
+}
