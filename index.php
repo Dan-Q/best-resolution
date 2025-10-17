@@ -103,6 +103,12 @@
           Want your button to show up here? <a href="mailto:best-resolution@danq.me">Email me</a> the name and address of your site and
           the URL of the 88×31 image you want me to use, and I'll see about adding it. So long as your site is legal and not objectively
           offensive, it'll be added quickly.
+          <br>
+          <small>
+            (Alternatively, you can make a pull request against
+            <a href="https://github.com/Dan-Q/best-resolution/blob/main/all-sites.txt">this file</a>,
+            adding your own site.)
+          </small>
         </p>
       </section>
     </main>
@@ -111,6 +117,7 @@
       <a href="https://forum.melonland.net/"><img src="https://forum.melonland.net/images/MELONLAND-FORUM.GIF" alt="Discuss on Melonland Forum" width="88" height="31"></a>
       <img src="//best-resolution.danq.dev/any.gif" alt="Looks best at: any resolution!" width="88" height="31">
       <img src="/badges/best-eyes.gif" alt="Best viewed with eyes!" width="88" height="31">
+      <a href="https://github.com/dan-q/best-resolution"><img src="/badges/github.png" alt="Source code available on GitHub!" width="88" height="31"></a>
     </footer>
 
     <script>
