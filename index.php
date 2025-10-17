@@ -107,7 +107,21 @@
               if( $_GET['from'] ) { // If we came FROM a site in our known sites list, make sure that's shown this load!
                 // First, try the exising "current list"; if it's there, just highlight it!
                 $button_index = array_find_key($button_data, fn($button) => str_starts_with($_GET['from'], $button['href']));
-                if( $button_index ) $button_data[$button_index]['extra_html'] = ' class="from"';
+                if( $button_index ) {
+                  $button_data[$button_index]['extra_html'] = ' class="from"';
+                } else {
+                  // Otherwise, let's try to find it in the "all sites" list!
+                  $all_buttons = load_buttons('all-sites.txt');
+                  $all_button_data = parse_button_data($all_buttons);
+                  $all_button_index = array_find_key($all_button_data, fn($button) => str_starts_with($_GET['from'], $button['href']));
+                  $all_button_item = $all_button_data[$all_button_index];
+                  if( $all_button_item ) {
+                    // Found it: so let's swap out an item from the current list with this new one, for this page load only:
+                    $position = $all_button_index % count($button_data);
+                    $button_data[$position] = $all_button_item;
+                    $button_data[$position]['extra_html'] = ' class="from"';
+                  }
+                }
               }
 
               foreach($button_data as $button) {
