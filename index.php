@@ -161,7 +161,7 @@
       function updateResolution(){
         const width = window.innerWidth;
         const height = window.innerHeight;
-        const resolution = `${width}x${height} pixels`;
+        const resolution = `${width}×${height} pixels`;
         document.querySelectorAll('.resolution').forEach(element => element.innerText = resolution);
         document.querySelectorAll('.resolution-extended').forEach(element => element.innerHTML = `That includes <em>your</em> screen resolution of ${resolution}!`);
         document.title = `Best Viewed at: ${resolution}`;
