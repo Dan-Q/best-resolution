@@ -69,6 +69,10 @@
             it can be swapped-in seamlessly. This is <em>usually</em> faster than the GIF animation gets to the "any size" frame, so
             it looks las though you knew their screen resolution all along!
           </li>
+          <li>
+            Why do links back to this site get a <tt>?from=...</tt> parameter? It's not an attempt to track you, I promise! It's just
+            so it can "highlight" to people who came from your site.
+          </li>
         </ul>
       </section>
 
