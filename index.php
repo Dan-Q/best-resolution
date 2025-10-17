@@ -90,9 +90,20 @@
               $buttons = file_get_contents('current-sites.txt');
               $buttons = array_map("trim", explode("\n", $buttons));
               $buttons = array_filter($buttons, fn($button) => $button);
+              $button_data = [];
               foreach($buttons as $button) {
                 $button = preg_split("/\s{2,}/", $button);
-                echo " <a href=\"{$button[1]}\"><img src=\"{$button[2]}\" alt=\"{$button[0]}\" width=\"88\" height=\"31\"></a> ";
+                $button_data[] = [ 'alt' => $button[0], 'href' => $button[1], 'src' => $button[2] ];
+              }
+
+              if( $_GET['from'] ) { // If we came FROM a site in our known sites list, make sure that's shown this load!
+                // First, try the exising "current list"; if it's there, just highlight it!
+                $button_index = array_find_key($button_data, fn($button) => str_starts_with($_GET['from'], $button['href']));
+                if( $button_index ) $button_data[$button_index]['extra_html'] = ' class="from"';
+              }
+
+              foreach($button_data as $button) {
+                echo " <a href=\"{$button['href']}\"{$button['extra_html']}><img src=\"{$button['src']}\" alt=\"{$button['alt']}\" width=\"88\" height=\"31\"></a> ";
               }
             } else {
               echo "<p>We can't show a list of sites right now. Sorry!</p>";

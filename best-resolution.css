@@ -63,7 +63,8 @@ code {
 
     &:hover, &:focus {
       transform: scale(1.5);
-    }  
+      z-index: 4;
+    }
   }
 }
 
@@ -119,4 +120,43 @@ section:nth-of-type(3)::after {
   left: -62px;
   bottom: 4rem;
   transform: rotate(-17deg);
+}
+
+/* Attempt to highlight the site that referred us here */
+.from {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+    position: absolute;
+  }
+
+  &::before {
+    border-top: .25em solid #7c0707;
+    border-radius: .5em;
+    top: -.8em;
+    left: -0.3em;
+    height: 1em;
+    width: 3em;
+    transform: rotate(-10deg);
+  }
+
+  &::after {
+    border: .25em solid #7c0707;
+    border-top: none;
+    border-radius: 1.5em 1em 2em 1.5em;
+    top: -0.7em;
+    bottom: -.5em;
+    left: -.8em;
+    right: -.8em;
+  }
+
+  &:hover, &:focus {
+    &::before, &::after {
+      opacity: 0;
+    }
+  }
 }
