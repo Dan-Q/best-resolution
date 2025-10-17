@@ -24,7 +24,7 @@
         <p>
           This page
           <?php if( isset($_GET['from']) ) { ?>
-            (like the one you came from!)
+            (like <span class="referer">the one you came from</span>!)
           <?php } ?>
           is best viewed at... <em>any</em> screen resolution!
         </p>
@@ -142,6 +142,10 @@
       };
       document.addEventListener('DOMContentLoaded', updateResolution);
       window.addEventListener('resize', updateResolution);
+
+      for(const referer of document.querySelectorAll('.referer')) {
+        referer.innerHTML = `<a href="#" onclick="history.back();">${referer.innerText}</a>`;
+      }
     </script>
   </body>
 </html>
