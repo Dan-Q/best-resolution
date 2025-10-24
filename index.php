@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Viewed at: Your Screen Resolution!</title>
     <link rel="stylesheet" href="./best-resolution.css">
+    <meta name="description" content="Show off your commitment to responsive design with an 88×31 badge that echoes your visitors resolution back to them!">
   </head>
   <body>
     <svg width="0" height="0" style="display: block;" viewBox="-40 -40 80 80">
