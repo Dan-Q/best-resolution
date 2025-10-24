@@ -151,7 +151,7 @@
     </main>
     <footer class="buttons">
       <a href="https://danq.me/"><img src="/badges/dan-q-88x31-lighter.gif" alt="Dan Q's website" width="88" height="31"></a>
-      <a href="https://forum.melonland.net/index.php?topic=4881"><img src="https://forum.melonland.net/images/MELONLAND-FORUM.GIF" alt="Discuss on Melonland Forum" width="88" height="31"></a>
+      <a href="https://forum.melonland.net/index.php?topic=4881"><img src="/melonland-forum.gif" alt="Discuss on Melonland Forum" width="88" height="31"></a>
       <img src="//best-resolution.danq.dev/any.gif" alt="Looks best at: any resolution!" width="88" height="31">
       <img src="/badges/best-eyes.gif" alt="Best viewed with eyes!" width="88" height="31">
       <a href="https://github.com/dan-q/best-resolution"><img src="/badges/github.png" alt="Source code available on GitHub!" width="88" height="31"></a>
