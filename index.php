@@ -31,7 +31,7 @@
         <p class="resolution-extended"></p>
         <p style="text-align: center;">
           <img src="//best-resolution.danq.dev/any.gif" alt="Looks best at: any resolution!" width="176" height="62">
-          <script src="//best-resolution.danq.dev/script.js"></script>
+          <script src="//best-resolution.danq.dev/script.js" defer></script>
         </p>
       </section>
 
