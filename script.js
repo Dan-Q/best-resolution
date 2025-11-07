@@ -20,8 +20,12 @@
         img.dataset.bestResolutionButton = 'true';
         img.src = url;
         img.alt = `Looks best at: ${width}×${height}`;
-        if(img.closest('a')) return;
-        const a = document.createElement('a');
+        let a = img.closest('a');
+        if(a){
+          a.href = `//best-resolution.danq.dev/?from=${encodeURIComponent(window.location.href)}`;
+          return;
+        }
+        a = document.createElement('a');
         a.href = `//best-resolution.danq.dev/?from=${encodeURIComponent(window.location.href)}`;
         if(window.location.hostname != 'best-resolution.danq.dev') a.target = '_blank';
         a.rel = 'noopener noreferrer';
