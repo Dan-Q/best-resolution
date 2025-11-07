@@ -114,7 +114,7 @@
               if( $_GET['from'] ) { // If we came FROM a site in our known sites list, make sure that's shown this load!
                 // First, try the exising "current list"; if it's there, just highlight it!
                 $button_index = array_find_key($button_data, fn($button) => str_starts_with($_GET['from'], $button['href']));
-                if( $button_index ) {
+                if( $button_index !== null ) {
                   $button_data[$button_index]['extra_html'] = ' class="from"';
                 } else {
                   // Otherwise, let's try to find it in the "all sites" list!
